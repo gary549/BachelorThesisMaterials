@@ -1,0 +1,55 @@
+id: https://w3id.org/linkml/examples/reactioninfo
+name: reactioninfo
+prefixes:
+  linkml: https://w3id.org/linkml/
+  reactioninfo: https://w3id.org/linkml/examples/reactions
+imports:
+  - linkml:types
+default_prefix: reactioninfo
+
+classes:
+  reaction:
+    attributes:
+      Experiment_number:
+        range: string
+      Time_on_stream:
+        range: integer
+      x_CO:
+        range: float
+      x_H2:
+        range: float
+      Temperature:
+        range: integer
+      Volume_Flow:
+        range: float
+      Catalyse:
+        range: Catalysis_attributes
+      Conversion:
+        range: Conversion_attributes
+      Products:
+        range: string
+        multivalued: true
+
+  Catalysis_attributes:
+    attributes:
+      volume:
+        range: float
+      Weight:
+        range: float
+      Loading:
+        range: float
+
+  Conversion_attributes:
+    attributes:
+      CO:
+        range: float
+      H2:
+        range: float
+        
+        
+  Container:
+    attributes:
+      reactions:
+        multivalued: true
+        inlined_as_list: true
+        range: reaction
